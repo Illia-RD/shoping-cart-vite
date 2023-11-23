@@ -2,83 +2,167 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vanilla-app-template/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/shoping-cart/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla App Template</title>
     
-    <script type="module" crossorigin src="/vanilla-app-template/assets/index-c45ada6b.js"></script>
-    <link rel="stylesheet" href="/vanilla-app-template/assets/index-10c40100.css">
+    <script type="module" crossorigin src="/shoping-cart/assets/index-71e14ee8.js"></script>
+    <link rel="stylesheet" href="/shoping-cart/assets/index-9bdbbe28.css">
   </head>
   <body>
-    <header class="header">
-  <nav class="nav">
-    <ul class="nav-list">
-      <li class="nav-item">
-        <a href="./page-2.html" class="nav-link">Page 2</a>
-      </li>
-
-      <li class="nav-item">
-        <a href="./page-3.html" class="nav-link">Page 3</a>
-      </li>
-    </ul>
-  </nav>
-</header>
-
-
     <section>
-      <h1>Lorem ipsum dolor sit amet.</h1>
-      <!-- Path to images as from index.html file -->
-      <img src="/vanilla-app-template/assets/javascript-8dac5379.svg" alt="" />
-    </section>
+  <form action="" class="shoping-cart-form" name="myForm">
+    <div class="book-order">
+      <label for="book-select">Назва товару</label>
+      <select
+        name="bookName"
+        type="text"
+        id="book-select"
+        class="book-name"
+        required
+      >
+        <option value="" data-price="0" disabled selected>
+          виберіть книгу
+        </option>
+        <option
+          name="shadow"
+          value="shadow"
+          class="select-option"
+          data-price="10.5"
+        >
+          Тіні забутих предків
+        </option>
+        <option
+          name="kobzar"
+          value="kobzar"
+          class="select-option"
+          data-price="10.5"
+        >
+          Кобзар
+        </option>
+        <option
+          name="kharakternyk"
+          value="kharakternyk"
+          class="select-option"
+          data-price="10.5"
+        >
+          Характерник
+        </option>
+        <option
+          name="eneyida"
+          value="eneyida"
+          class="select-option"
+          data-price="10.5"
+        >
+          Енеїда
+        </option>
+        <option name="war" value="war" class="select-option" data-price="10.5">
+          Війна
+        </option>
+      </select>
 
-    <!-- Loads the specified .html file -->
-    <section class="vite-promo">
-  <div class="container">
-    <div class="wrapper">
-      <h2 class="title">
-        <span class="gradient">Vite</span>
-      </h2>
-      <p class="text">Next Generation Frontend Tooling</p>
-      <p class="tagline">
-        Get ready for a development environment that can finally catch up with
-        you.
+      <label for="numerosity">Кількість</label>
+      <input
+        name="numerosity"
+        type="number"
+        id="numerosity"
+        class="book-numerosity"
+        min="1"
+        value="1"
+        required
+      />
+
+      <p id="price" class="book-price">
+        Ціна: <span class="book-price-output">0</span>
       </p>
-
-      <ul class="actions">
-        <li class="action">
-          <a
-            class="link"
-            href="https://vitejs.dev/guide/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Get Started</a
-          >
-        </li>
-        <li class="action">
-          <a
-            class="link"
-            href="https://github.com/vitejs/vite"
-            target="_blank"
-            rel="noopener noreferrer"
-            >View on GitHub</a
-          >
-        </li>
-      </ul>
     </div>
+    <div class="delivery-method">
+      <label for="post" class="delivery-label">Доставка на пошту</label>
+      <input
+        name="delivery"
+        type="radio"
+        id="post"
+        class="delivery-post delivery-btn"
+        checked
+      />
+      <label for="home" class="delivery-label">Доставка додому</label>
+      <input
+        name="delivery"
+        type="radio"
+        id="home"
+        class="delivery-home delivery-btn"
+      />
 
-    <div class="thumb">
-      <!-- Path to images as from index.html file -->
-      <img
-        class="pic"
-        src="/vanilla-app-template/assets/vite-logo-51249ca9.png"
-        alt="Vite logo"
-        width="640"
-        height="640"
+      <label for="packaging" class="delivery-label">Святкове пакування</label>
+      <input
+        name="packaging"
+        type="checkbox"
+        id="packaging"
+        value="packaging"
+        class="festive-packaging delivery-btn"
       />
     </div>
-  </div>
+    <div class="total-price-wrap">
+      <p class="total-price">
+        Загальна вартість замовлення<span class="total-price-output">0</span>
+      </p>
+      <button type="button" class="calc-total-btn btn">Підрахувати</button>
+    </div>
+    <div class="customer-data">
+      <label for="user-name">Ім'я</label>
+      <input
+        name="user-name"
+        type="text"
+        id="user-name"
+        class="customer-name"
+        required
+      />
+      <label for="user-surname">Прізвище</label>
+      <input
+        name="user-surname"
+        type="text"
+        id="user-surname"
+        class="customer-surname"
+        required
+      />
+
+      <label for="user-adress">Адреса доставки</label>
+      <input
+        name="user-adress"
+        type="text"
+        id="user-adress"
+        class="customer-adress"
+        required
+      />
+    </div>
+    <button type="submit" class="order-btn btn">Замовити</button>
+  </form>
 </section>
 
+    <section>
+  <table id="orderTable" class="order-table">
+    <thead>
+      <tr>
+        <th class="table-header">Дата</th>
+        <th class="table-header">Назва товару</th>
+        <th class="table-header">Кількість</th>
+        <th class="table-header">Тип пакування</th>
+        <th class="table-header">Ім'я</th>
+        <th class="table-header">Прізвище</th>
+
+        <th class="table-header">Тип доставки</th>
+        <th class="table-header">Адреса доставки</th>
+        <th class="table-header">Ціна</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Тут будуть дані -->
+    </tbody>
+  </table>
+</section>
+
+
+    <!-- Loads the specified .html file -->
 
     
   </body>
