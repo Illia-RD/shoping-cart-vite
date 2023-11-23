@@ -2,8 +2,6 @@
 import { cart } from './shopingCart'; // Імпортуємо форму
 import { addRowToTable } from './table';
 
-export const orderBtn = document.querySelector('.order-btn');
-
 export function submitForm(event) {
   const sampleData = {
     date: new Date().toLocaleDateString(),

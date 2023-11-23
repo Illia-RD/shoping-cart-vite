@@ -6,6 +6,7 @@ export const myForm = document.querySelector('.shoping-cart-form');
 const booksPrice = document.querySelector('.book-price-output');
 const totalPrice = document.querySelector('.total-price-output');
 const calcTotalBtn = document.querySelector('.calc-total-btn');
+export const orderBtn = document.querySelector('.order-btn');
 
 export let cart = {
   bookName: '',
@@ -95,11 +96,11 @@ function calcTotal() {
   if (cart.packaging) {
     cart.total += (10 / 100) * basePrice;
   }
-  console.log(cart);
+  if (cart.total !== 0) orderBtn.disabled = false;
+
   totalPrice.textContent = cart.total.toFixed(2);
 }
 
 myForm.addEventListener('change', order);
 calcTotalBtn.addEventListener('click', calcTotal);
 myForm.addEventListener('submit', submitForm);
-// if (totalPrice > 0) orderBtn.disabled = false;
